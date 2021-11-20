@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-//not saves but fixes cors error
+//not the saves but fixes cors error
 @CrossOrigin("*")
 @RestController
 //URL for the this Application
@@ -62,8 +62,8 @@ public class PaperRessource {
     }
 
     //Delete a existing Paper. No return therfore the ? as repsonse Entitiy
-    @PutMapping("delete/{id}")
-    //function thre an errow this annotation pfevents this
+    @DeleteMapping("delete/{id}")
+    //function here an error this annotation prevents this
     @Transactional
     public ResponseEntity<?> deletePaper(@PathVariable("id") Long id) {
         paperService.deletePaper(id);
