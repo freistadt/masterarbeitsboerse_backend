@@ -22,17 +22,39 @@ public class Paper implements Serializable{
     private String paperCode;
     private String contact_person;
     private String imageUrl;
+    private String division;
+    private String institute;
 
     //default Consturctor
     public Paper() {}
 
+
+
     //TODO add consturctors for other instances with less values passed
-    public Paper(String title, String description, String contact_person, String imageUrl) {
+    public Paper(String title, String description, String contact_person, String imageUrl,String division, String institute) {
         this.title = title;
         this.description = description;
         this.contact_person = contact_person;
         this.imageUrl = imageUrl;
+        this.division =division;
+        this.institute = institute;
 
+    }
+
+    public String getDivision() {
+        return division;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
+    }
+
+    public String getInstitute() {
+        return institute;
+    }
+
+    public void setInstitute(String institute) {
+        this.institute = institute;
     }
 
     public String getPaperCode() {
