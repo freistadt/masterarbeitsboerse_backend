@@ -28,11 +28,12 @@ public class PaperRessource {
 
     //ResponseEntity   @GetMapping= Generic --> we say its an List of Paper
     @GetMapping("/findAll")
+    @ResponseBody
     public ResponseEntity<List<Paper>> getAllPapers (){
         //call the function from the Service an save it in the List
         List<Paper> papers = paperService.findAllPapers();
         //the OK HTTPStaus code gets returnes so the User gets a 200 (success Message) repsonse
-        return new ResponseEntity<>(papers, HttpStatus.OK);
+        return new ResponseEntity<List<Paper>>(papers, HttpStatus.OK);
     }
 
 
