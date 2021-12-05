@@ -24,6 +24,8 @@ public class Paper implements Serializable{
     private String imageUrl;
     private String division;
     private String institute;
+    private boolean isPaid;
+    private boolean withPartner;
 
     //default Consturctor
     public Paper() {}
@@ -31,14 +33,31 @@ public class Paper implements Serializable{
 
 
     //TODO add consturctors for other instances with less values passed
-    public Paper(String title, String description, String contact_person, String imageUrl,String division, String institute) {
+    public Paper(String title, String description, String contact_person, String imageUrl,String division, String institute, boolean isPaid, boolean withPartner) {
         this.title = title;
         this.description = description;
         this.contact_person = contact_person;
         this.imageUrl = imageUrl;
         this.division =division;
         this.institute = institute;
+        this.isPaid = isPaid;
+        this.withPartner = withPartner;
+    }
 
+    public boolean isPaid() {
+        return isPaid;
+    }
+
+    public void setPaid(boolean paid) {
+        isPaid = paid;
+    }
+
+    public boolean isWithPartner() {
+        return withPartner;
+    }
+
+    public void setWithPartner(boolean withPartner) {
+        this.withPartner = withPartner;
     }
 
     public String getDivision() {

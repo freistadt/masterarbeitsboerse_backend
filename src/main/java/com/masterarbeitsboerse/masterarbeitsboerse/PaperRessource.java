@@ -69,4 +69,6 @@ public class PaperRessource {
         paperService.deletePaper(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }
