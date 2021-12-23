@@ -4,6 +4,7 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 //Serializable --> For better saving/controll when saving instances to Database
@@ -17,7 +18,7 @@ public class Paper implements Serializable{
     // preventing null values
     @NotNull
     private Long id;
-    private  String title;
+    private String title;
     private String description;
     private String paperCode;
     private String contact_person;
@@ -26,6 +27,9 @@ public class Paper implements Serializable{
     private String institute;
     private boolean isPaid;
     private boolean withPartner;
+    private Date startDate;
+    private Date endDate;
+
 
     //default Consturctor
     public Paper() {}
@@ -33,7 +37,8 @@ public class Paper implements Serializable{
 
 
     //TODO add consturctors for other instances with less values passed
-    public Paper(String title, String description, String contact_person, String imageUrl,String division, String institute, boolean isPaid, boolean withPartner) {
+    public Paper(String title, String description, String contact_person, String imageUrl,String division, String institute,
+                 boolean isPaid, boolean withPartner, Date startDate, Date endDate) {
         this.title = title;
         this.description = description;
         this.contact_person = contact_person;
@@ -42,6 +47,8 @@ public class Paper implements Serializable{
         this.institute = institute;
         this.isPaid = isPaid;
         this.withPartner = withPartner;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public boolean isPaid() {
@@ -50,6 +57,22 @@ public class Paper implements Serializable{
 
     public void setPaid(boolean paid) {
         isPaid = paid;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public boolean isWithPartner() {
