@@ -29,7 +29,16 @@ public class Paper implements Serializable{
     private boolean withPartner;
     private Date startDate;
     private Date endDate;
+    private String type;
 
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 
     //default Consturctor
     public Paper() {}
@@ -38,7 +47,7 @@ public class Paper implements Serializable{
 
     //TODO add consturctors for other instances with less values passed
     public Paper(String title, String description, String contact_person, String imageUrl,String division, String institute,
-                 boolean isPaid, boolean withPartner, Date startDate, Date endDate) {
+                 boolean isPaid, boolean withPartner, Date startDate, Date endDate, String type) {
         this.title = title;
         this.description = description;
         this.contact_person = contact_person;
@@ -49,6 +58,7 @@ public class Paper implements Serializable{
         this.withPartner = withPartner;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.type = type;
     }
 
     public boolean isPaid() {
