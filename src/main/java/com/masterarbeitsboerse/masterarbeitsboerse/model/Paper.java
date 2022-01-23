@@ -6,14 +6,17 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+import org.hibernate.annotations.FilterDef;
+
+@FilterDef(name = "paperFilter")
 @Entity
-//Serializable --> For better saving/controll when saving instances to Database
+//Serializable --> For better saving/control when saving instances to Database
 public class Paper implements Serializable{
 
     //for the primary Key in the database
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
-    //updatetabele = to make sure the value can not be changed after the ID is created
+    //updatable = to make sure the value can not be changed after the ID is created
     @Column(updatable = false, nullable = false)
     // preventing null values
     @NotNull
@@ -30,6 +33,7 @@ public class Paper implements Serializable{
     private Date startDate;
     private Date endDate;
     private String type;
+    private String subbmitedBy;
 
 
     public String getType() {
@@ -47,7 +51,7 @@ public class Paper implements Serializable{
 
     //TODO add consturctors for other instances with less values passed
     public Paper(String title, String description, String contact_person, String imageUrl,String division, String institute,
-                 boolean isPaid, boolean withPartner, Date startDate, Date endDate, String type) {
+                 boolean isPaid, boolean withPartner, Date startDate, Date endDate, String type, String subbmitedBy) {
         this.title = title;
         this.description = description;
         this.contact_person = contact_person;
@@ -59,6 +63,15 @@ public class Paper implements Serializable{
         this.startDate = startDate;
         this.endDate = endDate;
         this.type = type;
+        this.subbmitedBy = subbmitedBy;
+    }
+
+    public String getSubbmitedBy() {
+        return subbmitedBy;
+    }
+
+    public void setSubbmitedBy(String subbmitedBy) {
+        this.subbmitedBy = subbmitedBy;
     }
 
     public boolean isPaid() {

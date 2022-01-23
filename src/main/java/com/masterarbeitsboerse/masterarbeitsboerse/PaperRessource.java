@@ -22,7 +22,6 @@ public class PaperRessource {
         this.paperService = paperService;
     }
 
-
     //Baiscally all the Functions from the Service gets mirrored here and are able to be
     // called by Get/Post Mapping the real logik is still in the ServiceClass
 
@@ -35,7 +34,6 @@ public class PaperRessource {
         //the OK HTTPStaus code gets returnes so the User gets a 200 (success Message) repsonse
         return new ResponseEntity<List<Paper>>(papers, HttpStatus.OK);
     }
-
 
     //first mapping is to /paper --> so this mapping is /paper/find/{id} --> {id} = a passed in ID from the Client
     @GetMapping("/find/{id}")
@@ -55,14 +53,13 @@ public class PaperRessource {
     }
 
     //Update a existing Paper
-    //TODO CHECK how to do with postmen
     @PutMapping("update")
     public ResponseEntity<Paper> updatePaper(@RequestBody Paper paper) {
             Paper paperUpdate = paperService.updatePaper(paper);
         return new ResponseEntity<>(paperUpdate, HttpStatus.OK);
     }
 
-    //Delete a existing Paper. No return therfore the ? as repsonse Entitiy
+    //Delete a existing Paper. No return therefore the ? as response Entity
     @DeleteMapping("delete/{id}")
     //function here an error this annotation prevents this
     @Transactional

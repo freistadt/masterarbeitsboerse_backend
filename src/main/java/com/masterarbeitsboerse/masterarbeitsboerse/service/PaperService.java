@@ -3,6 +3,7 @@ package com.masterarbeitsboerse.masterarbeitsboerse.service;
 import com.masterarbeitsboerse.masterarbeitsboerse.exception.NoResultExecption;
 import com.masterarbeitsboerse.masterarbeitsboerse.model.Paper;
 import com.masterarbeitsboerse.masterarbeitsboerse.repository.PaperRepo;
+import org.hibernate.Filter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +25,6 @@ public class PaperService {
 
         //This should not be filled by the User so it is autognerated
         paper.setPaperCode(UUID.randomUUID().toString());
-
         return paperRepo.save(paper);
     }
 
@@ -47,4 +47,6 @@ public class PaperService {
         return paperRepo.findPaperById(id).orElseThrow(()
                 -> new NoResultExecption("The Paper with the passed ID: " +id+ " was not found"));
     }
+
+
 }
