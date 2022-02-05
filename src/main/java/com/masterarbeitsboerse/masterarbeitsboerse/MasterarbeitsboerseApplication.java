@@ -29,8 +29,8 @@ public class MasterarbeitsboerseApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MasterarbeitsboerseApplication.class, args);
 
-		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
-		Session session = sessionFactory.openSession();
+//		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+//		Session session = sessionFactory.openSession();
 	}
 
 

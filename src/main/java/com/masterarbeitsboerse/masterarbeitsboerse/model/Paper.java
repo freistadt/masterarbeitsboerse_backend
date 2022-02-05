@@ -8,7 +8,7 @@ import java.util.Date;
 
 import org.hibernate.annotations.FilterDef;
 
-@FilterDef(name = "paperFilter")
+//@FilterDef(name = "paperFilter")
 @Entity
 //Serializable --> For better saving/control when saving instances to Database
 public class Paper implements Serializable{
@@ -34,6 +34,10 @@ public class Paper implements Serializable{
     private Date endDate;
     private String type;
     private String subbmitedBy;
+    private String contactMail;
+    private String contactInfo;
+    private String paymentType;
+    private String paymentAmount;
 
 
     public String getType() {
@@ -48,10 +52,42 @@ public class Paper implements Serializable{
     public Paper() {}
 
 
+    public String getContactMail() {
+        return contactMail;
+    }
+
+    public void setContactMail(String contactMail) {
+        this.contactMail = contactMail;
+    }
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
+    }
+
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public String getPaymentAmount() {
+        return paymentAmount;
+    }
+
+    public void setPaymentAmount(String paymentAmount) {
+        this.paymentAmount = paymentAmount;
+    }
 
     //TODO add consturctors for other instances with less values passed
     public Paper(String title, String description, String contact_person, String imageUrl,String division, String institute,
-                 boolean isPaid, boolean withPartner, Date startDate, Date endDate, String type, String subbmitedBy) {
+                 boolean isPaid, boolean withPartner, Date startDate, Date endDate, String type, String subbmitedBy, String contactMail,
+                 String contactInfo, String paymentType,String paymentAmount ) {
         this.title = title;
         this.description = description;
         this.contact_person = contact_person;
@@ -64,6 +100,10 @@ public class Paper implements Serializable{
         this.endDate = endDate;
         this.type = type;
         this.subbmitedBy = subbmitedBy;
+        this.contactMail = contactMail;
+        this.contactInfo = contactInfo;
+        this.paymentType = paymentType;
+        this.paymentAmount = paymentAmount;
     }
 
     public String getSubbmitedBy() {
